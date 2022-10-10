@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bottom_nav_menu_rockets"
+        android:title="@string/rockets"
+        android:icon="@drawable/bars_tab_bar_elements_icons_rockets_enabled"/>
+
+    <item android:id="@+id/bottom_nav_menu_favorites"
+        android:title="@string/favorites"
+        android:icon="@drawable/bars_tab_bar_elements_icons_favorites_enabled"/>
+
+    <item android:id="@+id/bottom_nav_menu_upcoming"
+        android:title="@string/upcoming"
+        android:icon="@drawable/bars_tab_bar_elements_icons_launchers_enabled"/>
+</menu>
