@@ -14,5 +14,5 @@ data class Engines (
     val engine_loss_max: Int,
     val propellant_1: String,
     val propellant_2: String,
-    val thrust_to_weight: Int
+    val thrust_to_weight: Double
 )

@@ -12,7 +12,7 @@ data class Rocket(
     val second_stage: SecondStage,
     val engines: Engines,
     val landing_legs: LandingLegs,
-    val payload_weights: PayloadWeights,
+    val payload_weights: ArrayList<Weight>,
     val flickr_images: ArrayList<String>,
     val name: String,
     val type: String,
