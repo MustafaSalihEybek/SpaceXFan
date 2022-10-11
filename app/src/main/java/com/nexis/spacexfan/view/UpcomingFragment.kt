@@ -29,7 +29,7 @@ class UpcomingFragment : Fragment() {
     private fun init(){
         upComingBinding.upcomingFragmentRecyclerView.setHasFixedSize(true)
         upComingBinding.upcomingFragmentRecyclerView.layoutManager = LinearLayoutManager(v.context, LinearLayoutManager.VERTICAL, false)
-        upComingAdapter = UpComingAdapter(arrayListOf())
+        upComingAdapter = UpComingAdapter(arrayListOf(), v)
         upComingBinding.upcomingFragmentRecyclerView.adapter = upComingAdapter
 
         upComingViewModel = ViewModelProvider(this).get(UpComingViewModel::class.java)

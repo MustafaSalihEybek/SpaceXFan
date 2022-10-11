@@ -18,6 +18,9 @@
             android:name="userId"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_mainFragment_to_upComingDetailFragment"
+            app:destination="@id/upComingDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -46,5 +49,13 @@
         <action
             android:id="@+id/action_signInAndSignUpFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/upComingDetailFragment"
+        android:name="com.nexis.spacexfan.view.UpComingDetailFragment"
+        android:label="UpComingDetailFragment" >
+        <argument
+            android:name="upComingData"
+            app:argType="com.nexis.spacexfan.model.Upcoming" />
     </fragment>
 </navigation>

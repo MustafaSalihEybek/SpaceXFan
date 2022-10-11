@@ -38,4 +38,5 @@
     <color name="emptyColor">#ffffff</color>
 
     <color name="upcomingItemTxtColor">#ffffff</color>
+    <color name="upcomingFragmentTxtColor">#ffffff</color>
 </resources>
