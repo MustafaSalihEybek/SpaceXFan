@@ -4,14 +4,19 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.navigation.NavDirections
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.nexis.spacexfan.databinding.RocketItemBinding
+import com.nexis.spacexfan.model.Favorite
 import com.nexis.spacexfan.model.Rocket
+import com.nexis.spacexfan.util.AppUtil
+import com.nexis.spacexfan.util.FirebaseUtil
+import com.nexis.spacexfan.util.show
 import com.nexis.spacexfan.view.MainFragmentDirections
 
-class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View) : RecyclerView.Adapter<RocketsAdapter.RocketsHolder>() {
+class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View, val userId: String?) : RecyclerView.Adapter<RocketsAdapter.RocketsHolder>() {
     private lateinit var v: RocketItemBinding
     private lateinit var navDirections: NavDirections
     private var aPos: Int = 0
@@ -24,11 +29,58 @@ class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View) : Recycler
     override fun onBindViewHolder(holder: RocketsHolder, position: Int) {
         holder.rI.rocket = rocketList.get(position)
 
-        holder.itemView.setOnClickListener {
+        holder.rI.rocketItemImgRocket.setOnClickListener {
             aPos = holder.adapterPosition
 
             if (aPos != RecyclerView.NO_POSITION)
                 goToRocketDetailPage(rocketList.get(aPos))
+        }
+
+        if (userId != null){
+            FirebaseUtil.checkFavorite(userId, rocketList.get(position).id!!, checkFavoriteListener = {isFavorite, onError ->
+                onError?.let {
+                    it.show(vV, it)
+                }
+
+                if (isFavorite){
+                    println("aaa")
+                    holder.rI.rocketItemImgRemoveFavorite.visibility = View.VISIBLE
+                    holder.rI.rocketItemImgAddFavorite.visibility = View.GONE
+                } else {
+                    holder.rI.rocketItemImgAddFavorite.visibility = View.VISIBLE
+                    holder.rI.rocketItemImgRemoveFavorite.visibility = View.GONE
+                }
+            })
+        }
+
+        holder.rI.rocketItemImgAddFavorite.setOnClickListener {
+            aPos = holder.adapterPosition
+
+            if (aPos != RecyclerView.NO_POSITION){
+                if (userId != null){
+                    AppUtil.mFavorite = Favorite(rocketList.get(aPos).id!!)
+
+                    FirebaseUtil.addFavorite(userId, AppUtil.mFavorite, addFavoriteOnComplete = {onMessage ->
+                        onMessage?.let {
+                            it.show(vV, it)
+                        }
+                    })
+                }
+            }
+        }
+
+        holder.rI.rocketItemImgRemoveFavorite.setOnClickListener {
+            aPos = holder.adapterPosition
+
+            if (aPos != RecyclerView.NO_POSITION){
+                if (userId != null){
+                    FirebaseUtil.removeFavorite(userId, rocketList.get(aPos).id!!, removeFavoriteOnComplete = {onMessage ->
+                        onMessage?.let {
+                            it.show(vV, it)
+                        }
+                    })
+                }
+            }
         }
     }
 

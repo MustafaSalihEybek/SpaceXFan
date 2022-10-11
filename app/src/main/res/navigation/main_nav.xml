@@ -11,6 +11,13 @@
         <action
             android:id="@+id/action_mainFragment_to_rocketDetailFragment"
             app:destination="@id/rocketDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_signInAndSignUpFragment"
+            app:destination="@id/signInAndSignUpFragment" />
+        <argument
+            android:name="userId"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -27,5 +34,13 @@
         <argument
             android:name="rocketData"
             app:argType="com.nexis.spacexfan.model.Rocket" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInAndSignUpFragment"
+        android:name="com.nexis.spacexfan.view.SignInAndSignUpFragment"
+        android:label="SignInAndSignUpFragment" >
+        <action
+            android:id="@+id/action_signInAndSignUpFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

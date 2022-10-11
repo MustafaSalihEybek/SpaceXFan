@@ -37,7 +37,7 @@ class SplashFragment : Fragment() {
     }
 
     private fun goToMainPage(){
-        navDirections = SplashFragmentDirections.actionSplashFragmentToMainFragment()
+        navDirections = SplashFragmentDirections.actionSplashFragmentToMainFragment(null)
         Navigation.findNavController(v).navigate(navDirections)
     }
 }

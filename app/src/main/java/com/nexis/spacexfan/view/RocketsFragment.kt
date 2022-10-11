@@ -16,7 +16,7 @@ import com.nexis.spacexfan.util.Singleton
 import com.nexis.spacexfan.util.show
 import com.nexis.spacexfan.viewmodel.RocketsViewModel
 
-class RocketsFragment : Fragment() {
+class RocketsFragment(val userId: String?) : Fragment() {
     private lateinit var v: View
     private lateinit var rocketsBinding: FragmentRocketsBinding
     private lateinit var rocketsViewModel: RocketsViewModel
@@ -27,7 +27,7 @@ class RocketsFragment : Fragment() {
     private fun init(){
         rocketsBinding.rocketsFragmentRecyclerView.setHasFixedSize(true)
         rocketsBinding.rocketsFragmentRecyclerView.layoutManager = LinearLayoutManager(v.context, LinearLayoutManager.VERTICAL, false)
-        rocketsAdapter = RocketsAdapter(arrayListOf(), v)
+        rocketsAdapter = RocketsAdapter(arrayListOf(), v, userId)
         rocketsBinding.rocketsFragmentRecyclerView.adapter = rocketsAdapter
 
         rocketsViewModel = ViewModelProvider(this).get(RocketsViewModel::class.java)

@@ -20,10 +20,11 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/rocket_item_imgRocket"
             android:layout_width="match_parent"
-            android:scaleType="centerCrop"
+            android:layout_height="match_parent"
             android:downloadImg="@{rocket.flickr_images[0]}"
-            android:layout_height="match_parent"/>
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/rocket_item_txtRocketName"
@@ -41,15 +42,28 @@
             android:textStyle="normal" />
 
         <ImageView
-            android:layout_width="45dp"
             android:id="@+id/rocket_item_imgAddFavorite"
-            android:scaleType="fitXY"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
+            android:layout_width="45dp"
+            android:layout_height="35dp"
+            android:visibility="gone"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/bars_tab_bar_elements_icons_favorites_enabled"
-            android:layout_height="35dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/bars_tab_bar_elements_icons_favorites_enabled" />
+
+        <ImageView
+            android:id="@+id/rocket_item_imgRemoveFavorite"
+            android:layout_width="45dp"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:visibility="gone"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/bars_tab_bar_elements_icons_favorites_enabled" />
 
     </RelativeLayout>
 

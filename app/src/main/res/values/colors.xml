@@ -20,4 +20,20 @@
 
     <color name="detailItemTxtColor">#ffffff</color>
     <color name="detailItemStickColor">#868686</color>
+
+    <color name="editBgColor">#5E5E5E</color>
+    <color name="editEmptyTxtColor">#ffffff</color>
+    <color name="editFillTxtColor">#58fbc8</color>
+
+    <color name="favoritesTxtColor">#ffffff</color>
+
+    <color name="btnDarkTextColor">#a2a4a5</color>
+    <color name="btnDarkBgColor">#353535</color>
+    <color name="btnLightTextColor">#ffffff</color>
+    <color name="btnLightBgColor">#45d1a5</color>
+
+    <color name="orTxtColor">#ffffff</color>
+
+    <color name="filledColor">#45d1a5</color>
+    <color name="emptyColor">#ffffff</color>
 </resources>

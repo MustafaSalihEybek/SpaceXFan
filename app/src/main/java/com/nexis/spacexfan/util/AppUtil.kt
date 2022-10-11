@@ -1,6 +1,8 @@
 package com.nexis.spacexfan.util
 
 import com.nexis.spacexfan.api.AppAPI
+import com.nexis.spacexfan.model.Favorite
+import com.nexis.spacexfan.model.User
 import com.nexis.spacexfan.repository.GetRocketsRepository
 import io.reactivex.disposables.CompositeDisposable
 import retrofit2.Retrofit
@@ -9,6 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object AppUtil {
     lateinit var disposable: CompositeDisposable
+    lateinit var mUser: User
+    lateinit var mFavorite: Favorite
 
     lateinit var getRocketsRepository: GetRocketsRepository
 

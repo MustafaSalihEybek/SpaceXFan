@@ -13,6 +13,7 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
 
     val errorMessage = MutableLiveData<String>()
     val successMessage = MutableLiveData<String>()
+    val loginedUserId = MutableLiveData<String>()
 
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main

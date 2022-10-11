@@ -3,14 +3,105 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.FavoritesFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Favorites"
-        android:textSize="23sp"
+    <Button
+        android:id="@+id/favorites_fragment_btnSignOut"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/signout"
+        android:layout_marginEnd="25dp"
+        android:textAllCaps="false"
+        android:textSize="17sp"
+        android:fontFamily="@font/muli_bold"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
         android:textColor="@color/white"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content"/>
+        android:background="@drawable/bottom_nav_bg"
+        android:layout_alignParentTop="true"
+        app:backgroundTint="@null"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/favorites_fragment_linearSign"
+        android:layout_marginTop="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/edit_bg"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/form_elements_icons_email_enable_white"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:focusableInTouchMode="false"
+                android:hint="@string/email"
+                android:fontFamily="@font/muli_bold"
+                android:textColorHint="@color/editEmptyTxtColor"
+                android:id="@+id/favorites_fragment_editEmail"
+                android:layout_marginBottom="5dp"
+                android:background="@color/editBgColor"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/edit_bg"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/form_elements_icons_password_enable_white"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:hint="@string/password"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/muli_bold"
+                android:textColorHint="@color/editEmptyTxtColor"
+                android:id="@+id/favorites_fragment_editPassword"
+                android:layout_marginBottom="5dp"
+                android:background="@color/editBgColor"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="5dp"
+            android:textSize="15sp"
+            android:id="@+id/favorites_fragment_txtForgotPassword"
+            android:textColor="@color/favoritesTxtColor"
+            android:fontFamily="@font/muli_bold"
+            android:text="@string/forgot_password"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

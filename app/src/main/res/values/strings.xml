@@ -5,4 +5,10 @@
     <string name="rockets">Rockets</string>
     <string name="favorites">Favorites</string>
     <string name="upcoming">Upcoming</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="login">Log in</string>
+    <string name="signup">Sign up</string>
+    <string name="signout">Sign out</string>
 </resources>
