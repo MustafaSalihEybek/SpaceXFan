@@ -5,6 +5,7 @@ import com.nexis.spacexfan.model.Favorite
 import com.nexis.spacexfan.model.User
 import com.nexis.spacexfan.repository.GetRocketRepository
 import com.nexis.spacexfan.repository.GetRocketsRepository
+import com.nexis.spacexfan.repository.GetUpComingRepository
 import io.reactivex.disposables.CompositeDisposable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -17,6 +18,7 @@ object AppUtil {
 
     lateinit var getRocketsRepository: GetRocketsRepository
     lateinit var getRocketRepository: GetRocketRepository
+    lateinit var getUpComingRepository: GetUpComingRepository
 
     fun getAppAPI() : AppAPI {
         return Retrofit.Builder()

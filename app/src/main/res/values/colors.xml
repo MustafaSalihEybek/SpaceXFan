@@ -36,4 +36,6 @@
 
     <color name="filledColor">#45d1a5</color>
     <color name="emptyColor">#ffffff</color>
+
+    <color name="upcomingItemTxtColor">#ffffff</color>
 </resources>
