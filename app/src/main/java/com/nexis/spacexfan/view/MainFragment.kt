@@ -92,6 +92,8 @@ class MainFragment : Fragment() {
         rocketsFragment = RocketsFragment(userId)
         favoritesFragment = FavoritesFragment(userId)
         upcomingFragment = UpcomingFragment()
+
+        mainBinding.mainFragmentNavView.menu.findItem(R.id.bottom_nav_menu_rockets).setChecked(true)
     }
 
     private fun setFragment(fragment: Fragment){
