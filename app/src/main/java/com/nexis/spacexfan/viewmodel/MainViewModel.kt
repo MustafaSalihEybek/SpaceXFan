@@ -8,6 +8,13 @@ import com.nexis.spacexfan.viewmodel.base.BaseViewModel
 class MainViewModel(application: Application) : BaseViewModel(application) {
     fun checkUserLogin(){
         FirebaseUtil.fUser = FirebaseAuth.getInstance().currentUser
-        loginedUserId.value = FirebaseUtil.fUser?.uid
+
+        if (FirebaseUtil.fUser != null){
+            if (FirebaseUtil.fUser!!.isEmailVerified)
+                loginedUserId.value = FirebaseUtil.fUser?.uid
+            else
+                loginedUserId.value = null
+        } else
+            loginedUserId.value = null
     }
 }

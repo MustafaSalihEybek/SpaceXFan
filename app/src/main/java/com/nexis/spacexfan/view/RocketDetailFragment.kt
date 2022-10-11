@@ -83,6 +83,8 @@ class RocketDetailFragment : Fragment(), View.OnClickListener {
 
             if (userId != null && rocketData.id != null)
                 rocketDetailViewModel.checkFavorite(userId!!, rocketData.id!!)
+            else if (rocketData.id != null)
+                detailBinding.rocketDetailFragmentImgAddFavorite.visibility = View.VISIBLE
 
             detailBinding.rocketDetailFragmentImgBack.setOnClickListener(this)
             detailBinding.rocketDetailFragmentImgAddFavorite.setOnClickListener(this)

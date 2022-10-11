@@ -54,7 +54,8 @@ class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View?, val userI
                     }
                 }
             })
-        }
+        } else
+            holder.rI.rocketItemImgAddFavorite.visibility = View.VISIBLE
 
         holder.rI.rocketItemImgAddFavorite.setOnClickListener {
             aPos = holder.adapterPosition
@@ -69,6 +70,9 @@ class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View?, val userI
                                 it.show(vV, it)
                         }
                     })
+                } else {
+                    if (vV != null)
+                        "message".show(vV, "You must be logged in to do this!")
                 }
             }
         }
@@ -84,6 +88,9 @@ class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View?, val userI
                                 it.show(vV, it)
                         }
                     })
+                } else {
+                    if (vV != null)
+                        "message".show(vV, "You must be logged in to do this!")
                 }
             }
         }
