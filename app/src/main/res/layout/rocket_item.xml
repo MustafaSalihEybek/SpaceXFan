@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="rocket"
+            type="com.nexis.spacexfan.model.Rocket" />
+    </data>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardBackgroundColor="@android:color/transparent"
+    app:cardElevation="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            android:downloadImg="@{rocket.flickr_images[0]}"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/rocket_item_txtRocketName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nasalization_rg"
+            android:text="@{rocket.name}"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:id="@+id/rocket_item_imgAddFavorite"
+            android:scaleType="fitXY"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/bars_tab_bar_elements_icons_favorites_enabled"
+            android:layout_height="35dp"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+
+</layout>

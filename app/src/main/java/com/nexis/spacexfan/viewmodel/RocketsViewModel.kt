@@ -2,7 +2,7 @@ package com.nexis.spacexfan.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import com.nexis.spacexfan.model.Rocket.Rocket
+import com.nexis.spacexfan.model.Rocket
 import com.nexis.spacexfan.repository.GetRocketsRepository
 import com.nexis.spacexfan.util.AppUtil
 import com.nexis.spacexfan.viewmodel.base.BaseViewModel

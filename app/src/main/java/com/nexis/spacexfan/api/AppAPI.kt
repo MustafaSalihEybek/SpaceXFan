@@ -1,6 +1,6 @@
 package com.nexis.spacexfan.api
 
-import com.nexis.spacexfan.model.Rocket.Rocket
+import com.nexis.spacexfan.model.Rocket
 import io.reactivex.Single
 import retrofit2.http.GET
 

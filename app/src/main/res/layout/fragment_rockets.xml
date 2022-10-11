@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".view.RocketsFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:text="Rockets"
-        android:textSize="23sp"
-        android:textColor="@color/white"
-        android:layout_centerInParent="true"
-        android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:scrollbars="none"
+        android:id="@+id/rockets_fragment_recyclerView"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

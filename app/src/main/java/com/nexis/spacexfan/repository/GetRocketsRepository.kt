@@ -1,6 +1,6 @@
 package com.nexis.spacexfan.repository
 
-import com.nexis.spacexfan.model.Rocket.Rocket
+import com.nexis.spacexfan.model.Rocket
 import com.nexis.spacexfan.util.AppUtil
 import io.reactivex.Single
 

@@ -42,16 +42,19 @@ class MainFragment : Fragment() {
         mainBinding.mainFragmentNavView.setOnItemSelectedListener {
             when (it.itemId){
                 R.id.bottom_nav_menu_rockets -> {
+                    mainBinding.mainFragmentTxtToolBarName.text = "SpaceX Rockets"
                     setFragment(rocketsFragment)
                     true
                 }
 
                 R.id.bottom_nav_menu_favorites -> {
+                    mainBinding.mainFragmentTxtToolBarName.text = "Favorite Rockets"
                     setFragment(favoritesFragment)
                     true
                 }
 
                 R.id.bottom_nav_menu_upcoming -> {
+                    mainBinding.mainFragmentTxtToolBarName.text = "Upcoming Launchers"
                     setFragment(upcomingFragment)
                     true
                 }

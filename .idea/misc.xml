@@ -5,12 +5,18 @@
       <map>
         <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/drawable-anydpi/ic_icon_left.xml" value="0.1835" />
         <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/drawable/bottom_nav_bg.xml" value="0.1235" />
+        <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/drawable/detail_bg.xml" value="0.1235" />
+        <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/drawable/detail_other_images_bg.xml" value="0.1235" />
         <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/layout/activity_main.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/layout/fragment_favorites.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/layout/fragment_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/layout/fragment_rocket_detail.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/layout/fragment_rockets.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/layout/fragment_splash.xml" value="0.16944444444444445" />
         <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/layout/fragment_upcoming.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/layout/rocket_detail_img_item.xml" value="0.253125" />
+        <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/layout/rocket_detail_item.xml" value="0.253125" />
+        <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/layout/rocket_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nexis/AndroidStudioProjects/SpaceXFan2/app/src/main/res/menu/bottom_nav_menu.xml" value="0.253125" />
       </map>
     </option>

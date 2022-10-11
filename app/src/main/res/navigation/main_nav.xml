@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.nexis.spacexfan.view.MainFragment"
-        android:label="MainFragment" />
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_rocketDetailFragment"
+            app:destination="@id/rocketDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.nexis.spacexfan.view.SplashFragment"
@@ -15,5 +19,13 @@
         <action
             android:id="@+id/action_splashFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rocketDetailFragment"
+        android:name="com.nexis.spacexfan.view.RocketDetailFragment"
+        android:label="RocketDetailFragment" >
+        <argument
+            android:name="rocketData"
+            app:argType="com.nexis.spacexfan.model.Rocket" />
     </fragment>
 </navigation>

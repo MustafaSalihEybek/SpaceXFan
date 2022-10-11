@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="rocket"
+            type="com.nexis.spacexfan.model.Rocket" />
+    </data>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none"
+    android:background="@drawable/detail_bg"
+    tools:context=".view.RocketDetailFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/rocket_detail_fragment_toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <ImageView
+                android:id="@+id/rocket_detail_fragment_imgBack"
+                android:layout_width="45dp"
+                android:layout_height="55dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_icon_left" />
+
+            <TextView
+                android:id="@+id/main_fragment_txtToolBarName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="15dp"
+                android:fontFamily="@font/nasalization_rg"
+                android:letterSpacing="0"
+                android:text="@{rocket.name}"
+                android:textAllCaps="true"
+                android:textColor="@color/detailTitleTextColor"
+                android:textSize="19sp"
+                android:textStyle="normal" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/rocket_detail_fragment_imgRocket"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/rocket_detail_fragment_toolBar"
+            android:layout_marginTop="10dp"
+            android:downloadImg="@{rocket.flickr_images[0]}"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/rocket_detail_fragment_imgAddFavorite"
+            android:layout_marginEnd="5dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/rocket_detail_fragment_imgRocket"
+            android:src="@drawable/bars_tab_bar_elements_icons_favorites_enabled"
+            android:layout_height="35dp"/>
+
+        <TextView
+            android:id="@+id/rocket_detail_fragment_txtDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rocket_detail_fragment_imgRocket"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/muli_bold"
+            android:text="@{rocket.description}"
+            android:textColor="@color/detailTxtColor"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rocket_detail_fragment_recyclerViewDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rocket_detail_fragment_txtDetail"
+            android:layout_marginTop="15dp"
+            android:scrollbars="none" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rocket_detail_fragment_recyclerViewOtherImages"
+            android:layout_width="match_parent"
+            android:background="@color/detailOtherImagesBgColor"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rocket_detail_fragment_recyclerViewDetails"
+            android:layout_marginTop="15dp"
+            android:scrollbars="none" />
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
+
+</layout>
