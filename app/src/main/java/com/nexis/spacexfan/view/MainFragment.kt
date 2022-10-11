@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.nexis.spacexfan.R
 import com.nexis.spacexfan.databinding.FragmentMainBinding
+import com.nexis.spacexfan.util.Singleton
 import com.nexis.spacexfan.viewmodel.MainViewModel
 
 class MainFragment : Fragment() {
@@ -36,6 +37,8 @@ class MainFragment : Fragment() {
                 mainViewModel.checkUserLogin()
             else
                 setFragment(rocketsFragment)
+
+            Singleton.isLogout = false
         }
     }
 

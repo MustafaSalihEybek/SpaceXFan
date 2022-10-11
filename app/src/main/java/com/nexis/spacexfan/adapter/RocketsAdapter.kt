@@ -13,10 +13,11 @@ import com.nexis.spacexfan.model.Favorite
 import com.nexis.spacexfan.model.Rocket
 import com.nexis.spacexfan.util.AppUtil
 import com.nexis.spacexfan.util.FirebaseUtil
+import com.nexis.spacexfan.util.Singleton
 import com.nexis.spacexfan.util.show
 import com.nexis.spacexfan.view.MainFragmentDirections
 
-class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View, val userId: String?) : RecyclerView.Adapter<RocketsAdapter.RocketsHolder>() {
+class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View?, val userId: String?) : RecyclerView.Adapter<RocketsAdapter.RocketsHolder>() {
     private lateinit var v: RocketItemBinding
     private lateinit var navDirections: NavDirections
     private var aPos: Int = 0
@@ -38,16 +39,19 @@ class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View, val userId
 
         if (userId != null){
             FirebaseUtil.checkFavorite(userId, rocketList.get(position).id!!, checkFavoriteListener = {isFavorite, onError ->
-                onError?.let {
-                    it.show(vV, it)
-                }
+                if (!Singleton.isLogout){
+                    onError?.let {
+                        if (vV != null)
+                            it.show(vV, it)
+                    }
 
-                if (isFavorite){
-                    holder.rI.rocketItemImgRemoveFavorite.visibility = View.VISIBLE
-                    holder.rI.rocketItemImgAddFavorite.visibility = View.GONE
-                } else {
-                    holder.rI.rocketItemImgAddFavorite.visibility = View.VISIBLE
-                    holder.rI.rocketItemImgRemoveFavorite.visibility = View.GONE
+                    if (isFavorite){
+                        holder.rI.rocketItemImgRemoveFavorite.visibility = View.VISIBLE
+                        holder.rI.rocketItemImgAddFavorite.visibility = View.GONE
+                    } else {
+                        holder.rI.rocketItemImgAddFavorite.visibility = View.VISIBLE
+                        holder.rI.rocketItemImgRemoveFavorite.visibility = View.GONE
+                    }
                 }
             })
         }
@@ -61,7 +65,8 @@ class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View, val userId
 
                     FirebaseUtil.addFavorite(userId, AppUtil.mFavorite, addFavoriteOnComplete = {onMessage ->
                         onMessage?.let {
-                            it.show(vV, it)
+                            if (vV != null)
+                                it.show(vV, it)
                         }
                     })
                 }
@@ -75,7 +80,8 @@ class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View, val userId
                 if (userId != null){
                     FirebaseUtil.removeFavorite(userId, rocketList.get(aPos).id!!, removeFavoriteOnComplete = {onMessage ->
                         onMessage?.let {
-                            it.show(vV, it)
+                            if (vV != null)
+                                it.show(vV, it)
                         }
                     })
                 }
@@ -94,7 +100,9 @@ class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View, val userId
     }
 
     private fun goToRocketDetailPage(rocket: Rocket){
-        navDirections = MainFragmentDirections.actionMainFragmentToRocketDetailFragment(rocket, userId)
-        Navigation.findNavController(vV).navigate(navDirections)
+        if (vV != null) {
+            navDirections = MainFragmentDirections.actionMainFragmentToRocketDetailFragment(rocket, userId)
+            Navigation.findNavController(vV).navigate(navDirections)
+        }
     }
 }

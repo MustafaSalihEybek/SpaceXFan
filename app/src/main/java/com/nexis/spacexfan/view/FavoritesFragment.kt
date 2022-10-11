@@ -127,6 +127,7 @@ class FavoritesFragment(val userId: String?) : Fragment(), View.OnClickListener 
 
     private fun signOut(){
         "message".show(v, "Sign out...")
+        Singleton.isLogout = true
         FirebaseAuth.getInstance().signOut()
 
         Handler(Looper.myLooper()!!).postDelayed({

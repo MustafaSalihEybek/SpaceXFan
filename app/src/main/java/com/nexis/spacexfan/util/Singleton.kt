@@ -5,5 +5,6 @@ class Singleton {
         val BASE_URL: String = "https://api.spacexdata.com/"
         val V_SIZE: Int = 40
         val H_SIZE: Int = 25
+        var isLogout: Boolean = false
     }
 }
