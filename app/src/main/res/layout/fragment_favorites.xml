@@ -10,17 +10,17 @@
         android:id="@+id/favorites_fragment_btnSignOut"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/signout"
-        android:layout_marginEnd="25dp"
-        android:textAllCaps="false"
-        android:textSize="17sp"
-        android:fontFamily="@font/muli_bold"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="25dp"
         android:layout_marginTop="15dp"
-        android:textColor="@color/white"
+        android:layout_marginEnd="25dp"
         android:background="@drawable/bottom_nav_bg"
-        android:layout_alignParentTop="true"
-        app:backgroundTint="@null"/>
+        android:fontFamily="@font/muli_bold"
+        android:text="@string/signout"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:backgroundTint="@null" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -103,5 +103,15 @@
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:scrollbars="none"
+        android:id="@+id/favorites_fragment_recyclerView"
+        android:layout_below="@+id/favorites_fragment_btnSignOut"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>

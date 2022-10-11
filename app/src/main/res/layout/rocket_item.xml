@@ -63,7 +63,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
             android:scaleType="fitXY"
-            android:src="@drawable/bars_tab_bar_elements_icons_favorites_enabled" />
+            android:src="@drawable/bars_tab_bar_elements_icons_favorites_active_pressed" />
 
     </RelativeLayout>
 

@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,10 +18,13 @@ import com.nexis.spacexfan.databinding.FragmentRocketDetailBinding
 import com.nexis.spacexfan.model.Rocket
 import com.nexis.spacexfan.model.RocketDetail
 import com.nexis.spacexfan.util.Singleton
+import com.nexis.spacexfan.util.show
+import com.nexis.spacexfan.viewmodel.RocketDetailViewModel
 
 class RocketDetailFragment : Fragment(), View.OnClickListener {
     private lateinit var v: View
     private lateinit var detailBinding: FragmentRocketDetailBinding
+    private lateinit var rocketDetailViewModel: RocketDetailViewModel
 
     private lateinit var rocketsDetailsAdapter: RocketsDetailsAdapter
     private lateinit var rocketDetailList: ArrayList<RocketDetail>
@@ -28,8 +33,11 @@ class RocketDetailFragment : Fragment(), View.OnClickListener {
     private lateinit var rocketImagesList: ArrayList<String>
     private lateinit var rocketsImagesAdapter: RocketsImagesAdapter
 
+    private var userId: String? = null
+
     private fun init(){
         arguments?.let {
+            userId = RocketDetailFragmentArgs.fromBundle(it).userId
             rocketData = RocketDetailFragmentArgs.fromBundle(it).rocketData
             detailBinding.rocket = rocketData
 
@@ -70,7 +78,15 @@ class RocketDetailFragment : Fragment(), View.OnClickListener {
             detailBinding.rocketDetailFragmentRecyclerViewOtherImages.addItemDecoration(GridManagerDecoration(Singleton.V_SIZE, Singleton.H_SIZE))
             detailBinding.rocketDetailFragmentRecyclerViewOtherImages.adapter = rocketsImagesAdapter
 
+            rocketDetailViewModel = ViewModelProvider(this).get(RocketDetailViewModel::class.java)
+            observeLiveData()
+
+            if (userId != null && rocketData.id != null)
+                rocketDetailViewModel.checkFavorite(userId!!, rocketData.id!!)
+
             detailBinding.rocketDetailFragmentImgBack.setOnClickListener(this)
+            detailBinding.rocketDetailFragmentImgAddFavorite.setOnClickListener(this)
+            detailBinding.rocketDetailFragmentImgRemoveFavorite.setOnClickListener(this)
         }
     }
 
@@ -88,12 +104,53 @@ class RocketDetailFragment : Fragment(), View.OnClickListener {
         init()
     }
 
+    private fun observeLiveData(){
+        rocketDetailViewModel.isFavorite.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                if (it) {
+                    detailBinding.rocketDetailFragmentImgRemoveFavorite.visibility = View.VISIBLE
+                    detailBinding.rocketDetailFragmentImgAddFavorite.visibility = View.GONE
+                } else {
+                    detailBinding.rocketDetailFragmentImgAddFavorite.visibility = View.VISIBLE
+                    detailBinding.rocketDetailFragmentImgRemoveFavorite.visibility = View.GONE
+                }
+            }
+        })
+
+        rocketDetailViewModel.errorMessage.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                it.show(v, it)
+            }
+        })
+
+        rocketDetailViewModel.successMessage.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                it.show(v, it)
+            }
+        })
+    }
+
     override fun onClick(p0: View?) {
         p0?.let {
             when (it.id){
                 R.id.rocket_detail_fragment_imgBack -> Navigation.findNavController(v).popBackStack()
+                R.id.rocket_detail_fragment_imgAddFavorite -> addOrRemoveFavorite(true)
+                R.id.rocket_detail_fragment_imgRemoveFavorite -> addOrRemoveFavorite(false)
                 else -> return
             }
         }
+    }
+
+    private fun addOrRemoveFavorite(isAdd: Boolean){
+        if (userId != null){
+            if (rocketData.id != null){
+                if (isAdd)
+                    rocketDetailViewModel.addFavorite(userId!!, rocketData.id!!)
+                else
+                    rocketDetailViewModel.removeFavorite(userId!!, rocketData.id!!)
+            } else
+                "message".show(v, "Rocket data id not found")
+        } else
+            "message".show(v, "You must be logged in to do this!")
     }
 }

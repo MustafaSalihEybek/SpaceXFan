@@ -34,6 +34,10 @@
         <argument
             android:name="rocketData"
             app:argType="com.nexis.spacexfan.model.Rocket" />
+        <argument
+            android:name="userId"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/signInAndSignUpFragment"

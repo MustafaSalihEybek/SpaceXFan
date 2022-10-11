@@ -58,14 +58,26 @@
             android:scaleType="centerCrop"/>
 
         <ImageView
-            android:layout_width="45dp"
-            android:layout_marginTop="5dp"
             android:id="@+id/rocket_detail_fragment_imgAddFavorite"
-            android:layout_marginEnd="5dp"
-            android:layout_alignParentEnd="true"
+            android:layout_width="45dp"
+            android:visibility="gone"
+            android:layout_height="35dp"
             android:layout_alignTop="@+id/rocket_detail_fragment_imgRocket"
-            android:src="@drawable/bars_tab_bar_elements_icons_favorites_enabled"
-            android:layout_height="35dp"/>
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/bars_tab_bar_elements_icons_favorites_enabled" />
+
+        <ImageView
+            android:id="@+id/rocket_detail_fragment_imgRemoveFavorite"
+            android:layout_width="45dp"
+            android:visibility="gone"
+            android:layout_height="35dp"
+            android:layout_alignTop="@+id/rocket_detail_fragment_imgRocket"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/bars_tab_bar_elements_icons_favorites_active_pressed" />
 
         <TextView
             android:id="@+id/rocket_detail_fragment_txtDetail"

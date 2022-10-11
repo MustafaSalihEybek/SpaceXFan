@@ -5,6 +5,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.nexis.spacexfan.model.Favorite
 
 @SuppressLint("StaticFieldLeak")
@@ -13,6 +14,7 @@ object FirebaseUtil {
     val mFireStore: FirebaseFirestore = FirebaseFirestore.getInstance()
     var fUser: FirebaseUser? = null
     lateinit var mDocRef: DocumentReference
+    lateinit var mQuery: Query
 
     fun checkFavorite(userId: String, rocketId: String, checkFavoriteListener: (isFavorite: Boolean, onError: String?) -> Unit){
         mDocRef = mFireStore.collection("Users").document(userId)

@@ -43,7 +43,6 @@ class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View, val userId
                 }
 
                 if (isFavorite){
-                    println("aaa")
                     holder.rI.rocketItemImgRemoveFavorite.visibility = View.VISIBLE
                     holder.rI.rocketItemImgAddFavorite.visibility = View.GONE
                 } else {
@@ -95,7 +94,7 @@ class RocketsAdapter(var rocketList: ArrayList<Rocket>, val vV: View, val userId
     }
 
     private fun goToRocketDetailPage(rocket: Rocket){
-        navDirections = MainFragmentDirections.actionMainFragmentToRocketDetailFragment(rocket)
+        navDirections = MainFragmentDirections.actionMainFragmentToRocketDetailFragment(rocket, userId)
         Navigation.findNavController(vV).navigate(navDirections)
     }
 }
